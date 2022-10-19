@@ -1,0 +1,15 @@
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/bin/Debug/net6.0/lamzonJ-guessIt
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/bin/Debug/net6.0/lamzonJ-guessIt.deps.json
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/bin/Debug/net6.0/lamzonJ-guessIt.runtimeconfig.json
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/bin/Debug/net6.0/lamzonJ-guessIt.dll
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/bin/Debug/net6.0/lamzonJ-guessIt.pdb
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/obj/Debug/net6.0/lamzonJ-guessIt.csproj.AssemblyReference.cache
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/obj/Debug/net6.0/lamzonJ-guessIt.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/obj/Debug/net6.0/lamzonJ-guessIt.AssemblyInfoInputs.cache
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/obj/Debug/net6.0/lamzonJ-guessIt.AssemblyInfo.cs
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/obj/Debug/net6.0/lamzonJ-guessIt.csproj.CoreCompileInputs.cache
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/obj/Debug/net6.0/lamzonJ-guessIt.dll
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/obj/Debug/net6.0/refint/lamzonJ-guessIt.dll
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/obj/Debug/net6.0/lamzonJ-guessIt.pdb
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/obj/Debug/net6.0/lamzonJ-guessIt.genruntimeconfig.cache
+/Users/user/Documents/CodeStack/Class/LVL1/LVL1_Assignments/lamzonJ-GitHubChallenge/lamzonJ-guessIt/obj/Debug/net6.0/ref/lamzonJ-guessIt.dll
