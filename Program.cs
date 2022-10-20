@@ -3,13 +3,6 @@
 //
 
 
-//Jessie Lamzon
-//9-17-22
-//Mini Challenge # 8 - Guess It
-//guess it game where user will guess a number. user will also be able to choose thier own custom range.
-// peer review: Jeremy Lap- I loved the creativity one thing i would change is spacing between the write lines because sometimes it got a bit confusing 
-//because they were just together and hard to read. Also love the quote once you end the game.
-// flow chart really nice easy to follow only thing you should add is a key so that you don't have to keep typing "Output:"
 
 
 Console.Clear();
@@ -22,19 +15,22 @@ int minNormal = 1;
 int maxNormal = 50;
 int minHard = 1;
 int maxHard = 100;
-int minCustom;
-int maxCustom;
-int guess;
+int customMin = 0;
+int customMax = 0;
+string minCustom;
+string maxCustom;
+
 int easyMode;
 int normalMode;
 int hardMode;
-int customMode;
-
 int guesses;
+int guess;
+
+
 Random easyGame = new Random();
 Random normalGame = new Random();
 Random hardGame = new Random();
-Random customGame = new Random();
+
 
 string pickLevel = "";
 string userName = "";
@@ -55,26 +51,46 @@ while (playAgain != false)
     easyMode = easyGame.Next(min, max + 1);
     normalMode = normalGame.Next(minNormal, maxNormal + 1);
     hardMode = hardGame.Next(minHard, maxHard + 1);
-    
+    bool realNum = true;
+
     if (pickLevel == "custom")
     {
+        Random customGame = new Random();
+        int customMode = 0;
+
+
         Console.WriteLine("Choose your minimum 'starting' number");
-        minCustom = Convert.ToInt32(Console.ReadLine());
+        //minCustom = Convert.ToInt32(Console.ReadLine());
+        minCustom = Console.ReadLine();
+        realNum = Int32.TryParse(minCustom, out customMin);
+        Console.WriteLine(realNum);
+
         Console.WriteLine("Choose your maximum 'ending' number");
-        maxCustom = Convert.ToInt32(Console.ReadLine());
-        customMode = customGame.Next(minCustom, maxCustom + 1);
-        
+        //maxCustom = Convert.ToInt32(Console.ReadLine());
+        maxCustom = Console.ReadLine();
+        realNum = Int32.TryParse(maxCustom, out customMax);
+        Console.WriteLine(realNum);
+
+        customMode = customGame.Next(customMin, customMax + 1);
+
         while (guess != customMode)
         {
-            Console.WriteLine($"{userName} Guess a number between {minCustom} to {maxCustom}");
-            guess = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"{userName} Guess a number between {customMin} to {customMax}");
+            //guess = Convert.ToInt32(Console.ReadLine());
+            string userGuess = Console.ReadLine();
+            realNum = Int32.TryParse(userGuess, out guess);
             Console.WriteLine($"Guess {guess}");
-            
-            if(guess < minCustom || guess > maxCustom)
+
+            if (realNum == false)
+            {
+                Console.WriteLine("Try entering numbers only...");
+            }
+            else if (guess < customMin || guess > customMax)
             {
                 Console.WriteLine("Please stay within Custom range");
             }
-            if (guess > customMode)
+            else if (guess > customMode)
             {
                 Console.WriteLine($"{guess} is too high");
             }
@@ -83,10 +99,7 @@ while (playAgain != false)
                 Console.WriteLine($"{guess} is too low");
                 Console.WriteLine("Try again");
             }
-            else
-            {
-                Console.WriteLine("Try again...");
-            }
+
             guesses++;
         }
         Console.WriteLine("");
