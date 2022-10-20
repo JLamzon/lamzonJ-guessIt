@@ -3,8 +3,6 @@
 //
 
 
-
-
 Console.Clear();
 
 string response;
@@ -26,11 +24,9 @@ int hardMode;
 int guesses;
 int guess;
 
-
 Random easyGame = new Random();
 Random normalGame = new Random();
 Random hardGame = new Random();
-
 
 string pickLevel = "";
 string userName = "";
@@ -52,141 +48,163 @@ while (playAgain != false)
     normalMode = normalGame.Next(minNormal, maxNormal + 1);
     hardMode = hardGame.Next(minHard, maxHard + 1);
     bool realNum = true;
+    int customMode = 0;
 
     if (pickLevel == "custom")
     {
-        Random customGame = new Random();
-        int customMode = 0;
-
-
-        Console.WriteLine("Choose your minimum 'starting' number");
-        //minCustom = Convert.ToInt32(Console.ReadLine());
-        minCustom = Console.ReadLine();
-        realNum = Int32.TryParse(minCustom, out customMin);
-        Console.WriteLine(realNum);
-
-        Console.WriteLine("Choose your maximum 'ending' number");
-        //maxCustom = Convert.ToInt32(Console.ReadLine());
-        maxCustom = Console.ReadLine();
-        realNum = Int32.TryParse(maxCustom, out customMax);
-        Console.WriteLine(realNum);
-
-        customMode = customGame.Next(customMin, customMax + 1);
-
-        while (guess != customMode)
+        while (true)
         {
-
-            Console.WriteLine($"{userName} Guess a number between {customMin} to {customMax}");
-            //guess = Convert.ToInt32(Console.ReadLine());
-            string userGuess = Console.ReadLine();
-            realNum = Int32.TryParse(userGuess, out guess);
-            Console.WriteLine($"Guess {guess}");
+            Console.WriteLine("Choose your minimum 'starting' number");
+            minCustom = Console.ReadLine();
+            realNum = Int32.TryParse(minCustom, out customMin);
 
             if (realNum == false)
             {
-                Console.WriteLine("Try entering numbers only...");
+                Console.WriteLine("Try entring a number...");
             }
-            else if (guess < customMin || guess > customMax)
+            else
             {
-                Console.WriteLine("Please stay within Custom range");
+                break;
             }
-            else if (guess > customMode)
-            {
-                Console.WriteLine($"{guess} is too high");
-            }
-            else if (guess < customMode)
-            {
-                Console.WriteLine($"{guess} is too low");
-                Console.WriteLine("Try again");
-            }
-
-            guesses++;
         }
-        Console.WriteLine("");
-        Console.WriteLine("Ohhh you got me! Good game! :)");
-        Console.WriteLine($"Number {customMode}");
-        Console.WriteLine($"Guesses: {guesses}");
-    }
-    if (pickLevel == "easy")
-    {
-        while (guess != easyMode)
+
+        while (true)
         {
-            Console.WriteLine($"{userName}, Guess a number between {min} to {max}");
-            guess = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Guess {guess}");
-            if (guess > easyMode)
-            {
-                Console.WriteLine($"{guess} is too high");
-            }
-            else if (guess < easyMode)
-            {
-                Console.WriteLine($"{guess} is too low");
-                Console.WriteLine("Try again");
-            }
-            guesses++;
-        }
-        Console.WriteLine("Dang! You beat me!");
-        Console.WriteLine($"Number {easyMode}");
-        Console.WriteLine($"Guesses: {guesses}");
-    }
-    else if (pickLevel == "normal")
-    {
-        while (guess != normalMode)
+        Console.WriteLine("Choose your maximum 'ending' number\n");
+        maxCustom = Console.ReadLine();
+        realNum = Int32.TryParse(maxCustom, out customMax);
+
+        if (realNum == false)
         {
-            // bool trueNum;
-            // int realNormalNumber;
-
-            Console.WriteLine($"{userName}, Guess a number between {minNormal} to {maxNormal}");
-            guess = Convert.ToInt32(Console.ReadLine());
-            //trueNum = Int32.TryParse(guess, out realNormalNumber);
-
-            Console.WriteLine($"Guess {guess}");
-            if (guess > minNormal)
-                if (guess > normalMode)
-                {
-                    Console.WriteLine($"{guess} is too high");
-                }
-                else if (guess < normalMode)
-                {
-                    Console.WriteLine($"{guess} is too low");
-                    Console.WriteLine("Try again");
-                }
-            guesses++;
+            Console.WriteLine("Try entering a number...");
         }
-        Console.WriteLine("Sweet! You're good!");
-        Console.WriteLine($"Number {normalMode}");
-        Console.WriteLine($"Guesses: {guesses}");
-    }
-    else if (pickLevel == "hard")
-    {
-        while (guess != hardMode)
+        else
         {
-            Console.WriteLine($"{userName}, Guess a number between {minHard} to {maxHard}");
-            guess = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Guess {guess}");
-            if (guess > hardMode)
-            {
-                Console.WriteLine($"{guess} is too high");
-            }
-            else if (guess < hardMode)
-            {
-                Console.WriteLine($"{guess} is too low");
-                Console.WriteLine("Try again");
-            }
-            guesses++;
+            break;
         }
-        Console.WriteLine("WOO! Give yourself hand!");
-        Console.WriteLine($"Number {hardMode}");
-        Console.WriteLine($"Guesses {guesses}");
     }
-    Console.WriteLine("\nTry again? Press enter or type 'no' to exit");
-    response = Console.ReadLine().ToLower();
 
-    if (response == "no")
+    Random customGame = new Random();
+    customMode = customGame.Next(customMin, customMax + 1);
+
+    while (guess != customMode)
     {
-        Console.WriteLine($"{userName}, thanks for playing!");
-        playAgain = false;
+        Console.WriteLine($"{userName} Guess a number between {customMin} to {customMax}");
+        string userGuess = Console.ReadLine();
+        realNum = Int32.TryParse(userGuess, out guess);
+
+        if (realNum == false)
+        {
+            Console.WriteLine("Try entering numbers only...");
+        }
+        else if (guess < customMin || guess > customMax)
+        {
+            Console.WriteLine("Please stay within Custom range");
+        }
+        else if (guess > customMode)
+        {
+            Console.WriteLine($"{guess} is too high");
+        }
+        else if (guess < customMode)
+        {
+            Console.WriteLine($"{guess} is too low");
+            Console.WriteLine("Try again");
+        }
+        guesses++;
     }
+    Console.WriteLine("");
+    Console.WriteLine("Ohhh you got me! Good game! :)");
+    Console.WriteLine($"Number {customMode}");
+    Console.WriteLine($"Guesses: {guesses}");
 
+}
+if (pickLevel == "easy")
+{
+    while (guess != easyMode)
+    {
+        Console.WriteLine($"{userName}, Guess a number between {min} to {max}");
+        string userGuess = Console.ReadLine();
+        realNum = Int32.TryParse(userGuess, out guess);
 
+        if (realNum == false)
+        {
+            Console.WriteLine("Try entering numbers only...");
+        }
+        else if (guess > easyMode)
+        {
+            Console.WriteLine($"{guess} is too high");
+        }
+        else if (guess < easyMode)
+        {
+            Console.WriteLine($"{guess} is too low");
+            Console.WriteLine("Try again");
+        }
+        guesses++;
+    }
+    Console.WriteLine("Dang! You beat me!");
+    Console.WriteLine($"Number {easyMode}");
+    Console.WriteLine($"Guesses: {guesses}");
+}
+else if (pickLevel == "normal")
+{
+    while (guess != normalMode)
+    {
+        Console.WriteLine($"{userName}, Guess a number between {minNormal} to {maxNormal}");
+        string userGuess = Console.ReadLine();
+        realNum = Int32.TryParse(userGuess, out guess);
+
+        if (realNum == false)
+        {
+            Console.WriteLine("Try entering numbers only...");
+        }
+        else if (guess > normalMode)
+        {
+            Console.WriteLine($"{guess} is too high");
+        }
+        else if (guess < normalMode)
+        {
+            Console.WriteLine($"{guess} is too low");
+            Console.WriteLine("Try again");
+        }
+        guesses++;
+    }
+    Console.WriteLine("Sweet! You're good!");
+    Console.WriteLine($"Number {normalMode}");
+    Console.WriteLine($"Guesses: {guesses}");
+}
+else if (pickLevel == "hard")
+{
+    while (guess != hardMode)
+    {
+        Console.WriteLine($"{userName}, Guess a number between {minHard} to {maxHard}");
+        string userGuess = Console.ReadLine();
+        realNum = Int32.TryParse(userGuess, out guess);
+
+        if (realNum == false)
+        {
+            Console.WriteLine("Try entering numbers only...");
+        }
+        else if (guess > hardMode)
+        {
+            Console.WriteLine($"{guess} is too high");
+        }
+        else if (guess < hardMode)
+        {
+            Console.WriteLine($"{guess} is too low");
+            Console.WriteLine("Try again");
+        }
+        guesses++;
+    }
+    Console.WriteLine("WOO! Give yourself hand!");
+    Console.WriteLine($"Number {hardMode}");
+    Console.WriteLine($"Guesses {guesses}");
+}
+Console.WriteLine("\nPress any key to play again or type 'no' to exit...");
+response = Console.ReadLine().ToLower();
+
+if (response == "no")
+{
+    Console.WriteLine($"{userName}, thanks for playing!");
+    playAgain = false;
+}
 }
