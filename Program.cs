@@ -1,6 +1,7 @@
 ﻿//Jessie Lamzom
-//10/19/22
-//
+//10/20/22
+//GitHubChallenge - Redo mini Challenges
+// Guess It - data validation and play again
 
 
 Console.Clear();
