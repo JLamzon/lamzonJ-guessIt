@@ -63,6 +63,7 @@ while (playAgain != false)
         Console.WriteLine("Choose your maximum 'ending' number");
         maxCustom = Convert.ToInt32(Console.ReadLine());
         customMode = customGame.Next(minCustom, maxCustom + 1);
+        
         while (guess != customMode)
         {
             Console.WriteLine($"{userName} Guess a number between {minCustom} to {maxCustom}");
@@ -81,6 +82,10 @@ while (playAgain != false)
             {
                 Console.WriteLine($"{guess} is too low");
                 Console.WriteLine("Try again");
+            }
+            else
+            {
+                Console.WriteLine("Try again...");
             }
             guesses++;
         }
